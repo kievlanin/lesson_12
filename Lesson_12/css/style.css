@@ -1,0 +1,235 @@
+.wrapper{
+	overflow: hidden;
+	min-height: 100%;
+	position: relative;
+}
+
+
+body{
+	background-color: #333;
+}
+
+/*
+За допомогою 2D та 3D трансформації 
+ми зможемо зрушувати, повертати, масштабувати 
+елементи та робити багато іншого!
+Задається трансформація властивістю
+transform та її значеннями
+
+!!!!! НЕ ПРАЦЮЄ з рядковими об'єктами !!!!!!!!
+*/
+
+.section {
+	padding: 30px;
+}
+.section__body {
+	width: 200px;
+	height: 200px;
+	background-color: rgba(102, 102, 102, 0.8);
+}
+.section__item {
+	width: 200px;
+	height: 200px;
+	background-color: #7A956B;
+	background: url('../img/01.jpg') 0 0 / cover no-repeat;
+}
+
+/*
+translate (x, y)
+Зміщує елемент на нове місце,
+переміщаючи відносно початкового 
+положення об'єкта вправо та вниз,
+використовуючи координати X та Y. 
+Записується так translate (x,y).
+*/
+.section__item {
+	/* transform: translate(20%,20%); */
+	/* transform: translateY() */
+	/* transform: translateX() */
+	/* transform: translate(100%, 0%); */
+	/*
+	position: relative;
+	top: 20%;
+	left: 20%;
+	*/
+}
+/*
+Scale (x, y)
+Масштабує елементи,
+роблячи їх більшими або меншими.
+*/
+.section__item {
+	/* transform: scale(1); */
+}
+/*
+Rotate (n + deg)
+Повертає елементи.
+*/
+.section__item {
+	/* transform: rotate(10deg); */
+	/*
+	transform: rotateY(50deg)
+	transform: rotateX(50deg)
+	*/
+}
+/*
+Skew (x + deg, y + deg)
+Деформує (нахиляє) елементи.
+*/
+.section__item {
+	/* transform: skew(-10deg, 0deg); */
+}
+/*
+Matrix (a, c, b, d, x, y)
+Дозволяє об'єднати кілька функцій 2D-трансформацій в одній.
+*/
+.section__item {
+	/* transform: matrix(1, 0, 0, 1, 0, 0); */
+}
+/*
+Множинні 2D трансформації
+*/
+.section__item {
+	/* transform: translate(20%, 20%) scale(0.5) rotate(30deg) skew(20deg, 20deg); */
+}
+
+/*
+Transform-origin
+Дозволяє змістити центр трансформації,
+щодо якого відбувається зміна 
+положення/розміру/форми елемента.
+*/
+.section__item {
+	/* 
+	transform-origin: 0 0;
+ 	transform: rotate(20deg);
+	*/
+}
+
+/*
+Perspective,
+perspective-origin
+Встановлення глибини та зміна 
+точки початку координат.
+!! Задаються батьківському елементу!
+*/
+.section__body {
+	/*
+	perspective: 300px;
+	perspective-origin:center;
+	*/
+	
+}
+.section__item {
+	/*
+	transform: rotateX(50deg);
+	*/
+}
+
+/*
+3D
+За аналогією зі своїм 2D братом,
+це значення визначає переміщення елемента,
+але в 3D-просторі. Крім осі X та Y 
+додається вісь Z.
+!! вісь Z працює з перспективою
+*/
+.section__item {
+	/* transform: translate3d(20px, 20px, 20px); */
+	/* transform: scale3d(1,1,1); */
+	/* transform: rotate3d(1, 1, 1, 0deg); */
+	/* transform: translate3d(20px, 20px, 20px) scale3d(1, 1, 1); */
+}
+
+/*
+Transform-style
+Визначає, як дочірні елементи мають 
+відображатися у 3D-просторі.
+! ! Задається батьківському елементу разом з perspective !
+*/
+.section__body {
+	/*
+	perspective: 300px;
+	transform-style: preserve-3d;
+	*/
+}
+.section__item {
+	/*
+	transform: rotateY(180deg);
+	transition: all 0.3s ease 0s;
+	*/
+}
+.section__body:hover .section__item{
+	/* 
+	transform: rotateY(0deg);
+	*/
+}
+
+/*
+Backface-visibility
+Відображення зворотного боку об'єкта.
+*/
+
+.section__item {
+	/* backface-visibility: hidden; */
+}
+
+/*
+.expl {
+	position: relative;
+}
+.expl__item {
+	height: 30px;
+	background-color: #77608d;
+	width: 90px;
+	position: absolute;
+	left: 50%;
+	top: 0;
+
+	transform: translate(-50%,0px);
+}
+*/
+
+
+.link{
+	text-transform: uppercase;
+	color: #fff;
+	position: relative;
+	padding-right: 30px;
+	/* Не працює з рядковими */
+	transform: rotate(-20deg);
+}
+.link::before,
+.link::after{
+	content:"";
+	position: absolute;
+	width: 18px;
+	height: 2px;
+	background-color: #fff;
+	transition: all 0.3s ease 0s;
+	border-radius: 2px;
+}
+.link::before{
+	top: 5px;
+	right: 0;
+	transform: rotate(45deg);
+}
+.link::after {
+	top: 5px;
+	right: -12px;
+	transform: rotate(-45deg);
+}
+.link:hover{
+	color: red;
+}
+.link:hover::before {
+	transform: rotate(-45deg);
+}
+.link:hover::after {
+	transform: rotate(45deg);
+}
+
+
+.expl:hover .expl__item{
+	color: red;	
+}

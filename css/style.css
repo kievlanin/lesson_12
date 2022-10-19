@@ -1,0 +1,89 @@
+/* @import 'normalize.css'; */
+@import 'reset.css';
+@import 'font-volja.css';
+@import 'font-lato.css';
+@import 'google-fonts.css';
+
+/* --------------------------------------------------------------------------- */
+h1,
+h2,
+h3 {
+  font-family: 'Lato';
+}
+
+.wrapper {
+  width: 916px;
+  height: 100%;
+  /* overflow: hidden; */
+  margin: 0 auto;
+}
+
+header,
+footer {
+  font-family: Volja;
+  font-size: 1.5rem;
+  color: #f0f8ff;
+  text-align: center;
+  padding: 10px;
+
+  height: 3rem;
+  margin-bottom: 5px;
+  z-index: 1;
+  background-image: linear-gradient(to bottom, blue, yellow);
+}
+
+main {
+  position: static;
+}
+
+.picture {
+  position: relative;
+  height: 80vh;
+}
+
+.part {
+  position: absolute;
+  border: 2px solid black;
+  transition: transform 1.5s;
+}
+
+.picture:hover .part {
+  transform: scale(0.5) rotate(10deg) skew(-25deg, -25deg) translate(0, 30px) scale(1, -1);
+}
+
+.picture__part--1 {
+  top: 0;
+  left: 0;
+}
+
+.picture__part--1:hover {
+  transform: scale(0.9);
+}
+
+
+.picture__part--2 {
+  top: 0;
+  left: 458px;
+}
+
+.picture__part--2:hover {
+  transform: rotate(10deg);
+}
+
+.picture__part--3 {
+  top: 204px;
+  left: 0;
+}
+
+.picture__part--3:hover {
+  transform: translate(0, 30px);
+}
+
+.picture__part--4 {
+  top: 204px;
+  left: 458px;
+}
+
+.picture__part--4:hover {
+  transform: skewX(-25deg);
+}
